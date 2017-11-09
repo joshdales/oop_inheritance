@@ -26,7 +26,7 @@ class Multilinguist
   # @return [String] A 2 letter iso639_1 language code
   def language_in(country_name)
     params = {query: {fullText: 'true'}}
-    response = HTTParty.get("#{COUNTRIES_BASE_URL}/#{country_name}", params)
+    response = HTTParty.get("#{COUNTRIES_BASE_URL}/#{countryname}", params)
     json_response = JSON.parse(response.body)
     json_response.first['languages'].first['iso639_1']
   end
